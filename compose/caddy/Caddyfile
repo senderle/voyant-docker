@@ -1,0 +1,17 @@
+https://{$DOMAIN_NAME} {
+    root /voyant
+
+    proxy / voyant:8888 {
+        header_upstream Host {host}
+        header_upstream X-Real-IP {remote}
+        header_upstream X-Forwarded-Host {host}
+        header_upstream X-Forwarded-Server {host}
+        header_upstream X-Forwarded-For {remote}
+        header_upstream X-Forwarded-Proto {scheme}
+        except /corpora
+    }
+
+    log stdout
+    errors stdout
+    gzip
+}
