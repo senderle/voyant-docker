@@ -5,6 +5,16 @@ SSL-enabled proxy, with corpora preloaded. (Well, sort of; see below.)
 
 ## Setup
 
+# Warning: These instructions are incomplete. I need to add:
+
+* This assumes you're using a server with a domain name. You'll need to change
+  a config file to use the correct domain name. If you don't have a domain name
+  you'll need to make even more changes. I'll try to make that part easier, 
+  but can't right now.
+* This doesn't say how to access the "pre-loaded" corpora! Basically you just
+  pass the path to the corpus to the `input` param in the url. I.e. '.../?input=.../corpora/my_corpus.zip' --
+  but that's pretty terse; I need to add more about that part.
+
 This should work for any server running Ubuntu or Debian. Many of the details
 will be the same on other servers, but you may have to consult other sources 
 for the docker and docker-compose installation processes. I assume you have
@@ -113,7 +123,7 @@ and clone that instead in step 2.
         cd voyant-docker
         sudo docker-compose build
         
-5. Finally, run the server:
+5. Run the server:
 
         sudo docker-compose up -d
 
@@ -129,5 +139,3 @@ and clone that instead in step 2.
         
     This attaches the server to your current terminal, so that you can't exit without shutting down
     the server. (There are ways to detatch again, but that's beyond the scope of this readme!)
-
-
